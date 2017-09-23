@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='shortcut icon' type='image/x-icon' href='/pomodoro.ico' />
+  <title>The Pomodoro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Good old Pomdoro</h1>
+  </header>
+  <section id="pomodoro">
+    <div id="breakSetter">
+      <input type="number" id="breakTime" value="5" min="1">
+    </div>
+    <div id="pomodoroSetter">
+      <input type="number" id="pomodoroTime" value="25" min="1">
+    </div>
+    <div id="timeTracker">
+      <span id="timer">25:00</span>
+    </div>
+  </section>
+  <footer>
+    <p class="center">Designed and developed by <span><strong><em>marcorodnav</em></strong></span> &copy; 2017</p>
+  </footer>
+  <script src="pomodoro.js"></script>
+</body>
+
+</html>
