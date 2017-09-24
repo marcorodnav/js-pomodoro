@@ -16,19 +16,23 @@
   </header>
   <section id="pomodoro" class="metalicFont noselect">
     <div class="timerBox">
-        <h2>Break timer</h2>
-      <span id="breakTime" class="timeSet">5</span>
-      <span id="plusMinBreak" class="plusControl">+</span>
-      <span id="minusMinBreak" class="minusControl">-</span>
-    </div>
-    <div class="timerBox">
       <h2>Pomodoro timer</h2>
       <span id="pomoTime" class="timeSet">25</span>
-      <span id="plusMinPomo" class="plusControl">+</span>
-      <span id="minusMinPomo" class="minusControl">-</span>
+      <span id="plusMinPomo" class="control controlLeft">+</span>
+      <span id="minusMinPomo" class="control controlRight">-</span>
+    </div>
+    <div class="timerBox">
+      <h2>Break timer</h2>
+      <span id="breakTime" class="timeSet">5</span>
+      <span id="plusMinBreak" class="control controlLeft">+</span>
+      <span id="minusMinBreak" class="control controlRight">-</span>
     </div>
     <div id="timeTracker">
-      <span id="timer">25:00</span>
+      <span id="timer">00:00</span>
+    </div>
+    <div id="timerControls">
+      <span id="playTimer" class="control controlLeft">PLAY</span>
+      <span id="resetTimer" class="control controlRight">RESET</span>
     </div>
   </section>
   <footer>
