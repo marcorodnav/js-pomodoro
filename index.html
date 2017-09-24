@@ -10,23 +10,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="center">
   <header>
-    <h1>Good old Pomdoro</h1>
+    <h1 class="softFont whiteFont">Good old Pomodoro</h1>
   </header>
-  <section id="pomodoro">
-    <div id="breakSetter">
-      <input type="number" id="breakTime" value="5" min="1">
+  <section id="pomodoro" class="metalicFont">
+    <div id="breakSetter" class="timerBox">
+      <span id="breakTime" class="timeSet">5</span>
+      <span id="plusMinBreak" class="plusControl">+</span>
+      <span id="minusMinBreak" class="minusControl">-</span>
     </div>
-    <div id="pomodoroSetter">
-      <input type="number" id="pomodoroTime" value="25" min="1">
+    <div id="pomodoroSetter" class="timerBox">
+      <span id="pomoTime" class="timeSet">25</span>
+      <span id="plusMinPomo" class="plusControl">+</span>
+      <span id="minusMinPomo" class="minusControl">-</span>
     </div>
     <div id="timeTracker">
       <span id="timer">25:00</span>
     </div>
   </section>
   <footer>
-    <p class="center">Designed and developed by <span><strong><em>marcorodnav</em></strong></span> &copy; 2017</p>
+    <p class="softFont bigLetters whiteFont">Designed and developed by <span><strong><em>marcorodnav</em></strong></span> &copy; 2017</p>
   </footer>
   <script src="pomodoro.js"></script>
 </body>
