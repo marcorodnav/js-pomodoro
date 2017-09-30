@@ -42,8 +42,8 @@
       this.minusBreak.addEventListener('click', this.decBreak, false);
       this.plusPomo.addEventListener('click', this.incPomo, false);
       this.minusPomo.addEventListener('click', this.decPomo, false);
-      this.playTimer.addEventListener('click', this.startTimer, false)
-      this.resetTimer.addEventListener('click', this.stopTimer, false)
+      this.playTimer.addEventListener('click', this.startTimer, false);
+      this.resetTimer.addEventListener('click', this.stopTimer, false);
     },
     validTime: function (time) {
       return time > 1;
@@ -52,7 +52,6 @@
       let time = Number(breakTime.innerText);
       time += 1;
       breakTime.innerText = time;
-      console.log(time);
     },
     decBreak: function () {
       let time = Number(breakTime.innerText);
@@ -60,13 +59,11 @@
         time -= 1;
       }
       breakTime.innerText = time;
-      console.log(time);
     },
     incPomo: function () {
       let time = Number(pomoTime.innerText);
       time += 1;
       pomoTime.innerText = time;
-      console.log(time);
     },
     decPomo: function () {
       let time = Number(pomoTime.innerText);
@@ -74,9 +71,9 @@
         time -= 1;
       }
       pomoTime.innerText = time;
-      console.log(time);
     },
     startTimer: function() {
+      Pomodoro.playTimer.removeEventListener('click',Pomodoro.startTimer);
       let minutesP = pomoTime.textContent;
       let minutesB = breakTime.textContent;
       let seconds = 59;
@@ -90,7 +87,6 @@
         let initialMP = minutesP;
         let initialMB = minutesB;
         let minutesT = parseInt((timerFlag ? minutesP : minutesB), 10);
-        // --minutesT = minutesT === 1 ? 0 : minutesT;
         --minutesT;
         let secondsT = parseInt(seconds, 10);
         minutesT = minutesT < 10 ? '0' + minutesT : minutesT;
@@ -102,7 +98,7 @@
         } seconds--;
 
         if ((minutesT === 0 || minutesT === "00") && (secondsT === 0 || secondsT === "00")) {
-          timerFlag = false;
+          timerFlag = !timerFlag;
           seconds = 59;
           minutesP = initialMP;
           minutesB = initialMB;
@@ -113,6 +109,7 @@
       clearInterval(Pomodoro.pomodoroId);
       Indicators.clearIndicators();
       Pomodoro.timerDisplay.textContent = "00:00";
+      Pomodoro.playTimer.addEventListener('click', Pomodoro.startTimer, false);
     }
   };
 
