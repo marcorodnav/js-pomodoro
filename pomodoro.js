@@ -1,7 +1,29 @@
 (function () {
   'use strict';
+  var Indicators = {
+    init: function(){
+      this.pomoI = document.querySelector('#pomoTime').parentElement.firstElementChild;
+      this.breakI = document.querySelector('#breakTime').parentElement.firstElementChild;
+    },
+    turnPomoOn: function() {
+      Indicators.pomoI.className = "timerActive";
+      Indicators.breakI.classList.remove("timerActive");
+    }, 
+    turnBreakOn: function() {
+      Indicators.breakI.className = 'timerActive';
+      Indicators.pomoI.classList.remove('timerActive');
+    },
+    clearIndicators: function() {
+      Indicators.breakI.classList.remove("timerActive");
+      Indicators.pomoI.classList.remove('timerActive');
+    }
+  };
+  Indicators.init();
+
   var Pomodoro = {
     init: function () {
+      // this.pomoIndicator = document.querySelector('#pomoTime').parentElement.firstElementChild;
+      // this.breakIndicator = document.querySelector('#breakTime').parentElement.firstElementChild;
       this.breakTime = document.querySelector('#breakTime');
       this.pomoTime = document.querySelector('#pomoTime');
       this.timerDisplay = document.querySelector('#timer');
@@ -60,13 +82,16 @@
       let seconds = 59;
       let display = Pomodoro.timerDisplay;
       let stopFunction = Pomodoro.stopTimer;
-      let timerFlag = Pomodoro.pomoFlag;
+      var timerFlag = Pomodoro.pomoFlag;
+      let pomoIndicator = Indicators.turnPomoOn;
+      let breakIndicator = Indicators.turnBreakOn;
       Pomodoro.pomodoroId = setInterval(function(){
-        let stop = stopFunction;
+        if (timerFlag) pomoIndicator(); else breakIndicator();
         let initialMP = minutesP;
         let initialMB = minutesB;
         let minutesT = parseInt((timerFlag ? minutesP : minutesB), 10);
-        minutesT = minutesT === 1 ? 0 : minutesT;
+        // --minutesT = minutesT === 1 ? 0 : minutesT;
+        --minutesT;
         let secondsT = parseInt(seconds, 10);
         minutesT = minutesT < 10 ? '0' + minutesT : minutesT;
         secondsT = secondsT < 10 ? '0' + secondsT : secondsT;
@@ -82,12 +107,11 @@
           minutesP = initialMP;
           minutesB = initialMB;
         }
-        console.log("TimerDisplay: "+display.textContent);
-      }, 1000, minutesP, minutesB,seconds, display, stopFunction, timerFlag);
+      }, 1000, minutesP, minutesB,seconds, display, timerFlag, pomoIndicator, breakIndicator);
     },
     stopTimer: function() {
       clearInterval(Pomodoro.pomodoroId);
-      console.log("called");
+      Indicators.clearIndicators();
       Pomodoro.timerDisplay.textContent = "00:00";
     }
   };
