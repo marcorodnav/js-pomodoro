@@ -8,6 +8,26 @@
   src: url(fonts/IndieFlower.ttf)
 }
 
+body {
+  background: #2C3E70;
+}
+header {
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 50px;
+}
+
+footer {
+  left: 0px;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+}
+
 .metalicFont {
   font-family: 'Orbitron';
 }
@@ -28,33 +48,10 @@
   color: rgba(255, 255, 255, 0.94);
 }
 
-header {
-  position:fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-}
-
-header h1 {
-  font-size: 50px;
-}
-
-footer {
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:60px;
-  width:100%;
-}
-
 #pomodoro {
   position: relative;
-  top: 100px;
 }
 
-body {
-  background: #2C3E70;
-}
 
 .timerBox {
   margin-bottom: 20px;
@@ -87,7 +84,8 @@ body {
 .control:hover {
   background-color: rgba(255, 255, 255, 0.18);
 }
-.controlLeft{
+
+.controlLeft {
   margin-right: 20px;
 }
 
@@ -102,6 +100,10 @@ body {
 }
 
 #timer {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 255px !important;
+  height: 80px !important;
   border: 3px solid #fff;
   border-radius: 37%;
   padding: 10px 30px;
@@ -115,11 +117,18 @@ body {
   padding: 7px 9px;
 }
 
+.timerActive {
+  color: rgba(56, 209, 10, 0.75) !important;
+  text-decoration: none !important;
+}
+
+/* document.querySelector("#pomoTime").parentElement.firstElementChild */
+
 .noselect {
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none; 
-       -moz-user-select: none; 
-        -ms-user-select: none; 
-            user-select: none; 
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
