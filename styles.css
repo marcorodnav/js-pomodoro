@@ -11,6 +11,7 @@
 body {
   background: #2C3E70;
 }
+
 header {
   left: 0px;
   top: 0px;
@@ -51,7 +52,6 @@ footer {
 #pomodoro {
   position: relative;
 }
-
 
 .timerBox {
   margin-bottom: 20px;
@@ -121,6 +121,15 @@ footer {
   color: rgba(56, 209, 10, 0.75) !important;
   text-decoration: none !important;
 }
+
+.timerActive:before {
+  content: "***";
+}
+
+.timerActive:after {
+  content: "***";
+}
+
 
 /* document.querySelector("#pomoTime").parentElement.firstElementChild */
 
